@@ -24,7 +24,7 @@ The package is available in two different distribution formats:
 1. You can download it from `PyPI <http://pypi.python.org/pypi>`_, or
 
 2. You can download it in its source form from `its git repository
-   <https://github.com/bioidiap/bob.db.atvskeystroke>`_. When you download the
+   <https://github.com/bioidiap/xbob.db.atvskeystroke>`_. When you download the
    version at the git repository, you will need to run a command to recreate
    the backend SQLite file required for its operation. This means that the
    database raw files must be installed somewhere in this case. With option
@@ -44,11 +44,11 @@ script)::
 
     install_requires=[
       ...
-      "bob.db.atvskeystroke",
+      "xbob.db.atvskeystroke",
     ],
 
 Proceed normally with your ``boostrap/buildout`` steps and you should be all
-set. That means you can now import the ``bob.db.atvskeystroke`` namespace into your scripts.
+set. That means you can now import the ``xbob.db.atvskeystroke`` namespace into your scripts.
 
 Modify your buildout.cfg and download from git
 ==============================================
@@ -64,8 +64,8 @@ lines::
   auto-checkout = *
   eggs = bob
          ...
-         bob.db.atvskeystroke
+         xbob.db.atvskeystroke
 
   [sources]
-  bob.db.atvskeystroke = git https://github.com/bioidiap/bob.db.atvskeystroke.git
+  bob.db.atvskeystroke = git https://github.com/bioidiap/xbob.db.atvskeystroke.git
   ...
