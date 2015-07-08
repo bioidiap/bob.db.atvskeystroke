@@ -1,5 +1,5 @@
 =========================
-ATVS Keystroke Database
+ ATVS Keystroke Database
 =========================
 
 This package contains the access API and descriptions for the `ATVS Keystroke
@@ -67,5 +67,5 @@ lines::
          xbob.db.atvskeystroke
 
   [sources]
-  bob.db.atvskeystroke = git https://github.com/bioidiap/xbob.db.atvskeystroke.git
+  xbob.db.atvskeystroke = git https://github.com/bioidiap/xbob.db.atvskeystroke.git
   ...
