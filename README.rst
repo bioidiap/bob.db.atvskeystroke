@@ -67,5 +67,5 @@ lines::
          xbob.db.atvskeystroke
 
   [sources]
-  xbob.db.atvskeystroke = git https://github.com/bioidiap/xbob.db.atvskeystroke.git
+  xbob.db.atvskeystroke = git https://github.com/mgbarrero/xbob.db.atvskeystroke.git
   ...
