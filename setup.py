@@ -23,7 +23,7 @@ from setuptools import setup, find_packages
 setup(
 
     name='xbob.db.atvskeystroke',
-    version='1.0.0',
+    version='0.0.1',
     description='ATVS-Keystroke Database Access API for Bob',
     url='http://github.com/mgbarrero/xbob.db.atvskeystroke',
     license='GPLv3',
@@ -52,14 +52,14 @@ setup(
 
       # declare database to bob
       'bob.db': [
-        'atnt = xbob.db.atvskeystroke.driver:Interface',
+        'atvskeystroke = xbob.db.atvskeystroke.driver:Interface',
         ],
 
       # declare tests to bob
       'bob.test': [
-        'atnt = xbob.db.atvskeystroke.test:ATVSKeystrokeDatabaseTest',
+        'atvskeystroke = xbob.db.atvskeystroke.test:ATVSKeystrokeDatabaseTest',
         ],
-        
+
       },
 
     classifiers = [
