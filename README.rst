@@ -3,7 +3,7 @@
 =========================
 
 This package contains the access API and descriptions for the `ATVS Keystroke
-Database `_.
+Database`_.
 
 You would normally not install this package unless you are maintaining it. What
 you would do instead is to tie it in at the package you need to **use** it.
