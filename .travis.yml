@@ -3,8 +3,8 @@ matrix:
   include:
   - python: 2.7
     env:
-    - secure: nFUUA3ju4Y+JTuLS4N2u+9FZtvWMIKij8wz4OzpLNtPhAitdzZJSiAUgE5uY94MbRlsyBkLuyUiJ144RVRoRmZuaw4Dkr/ntW3Z/zqIni7IYJ4yl3QUPXGSbTH7HR2LQIid7mHkeWcEguyfiusSYhBhmEtxPJoHN4SfaFfveX28=
-    - secure: bN9g+XWFSBHYsJdjNVk/h0ijua42yi5pfw2EIEpSGAg5IoIVP2ZwwC5Nc3z+w08+TpdyHjFqP7wVj0e0Ltcz2+Ia3sG8sprqC4jaVrEe4E2xaImvzxRUpLBzgO7jbPsi8Kulz1BCuSKcE+P9/wHpGi92DX42+lVw4f2iFtKWEaM=
+    - secure: "NQm0Bn+A9oVNIIMTQTyTiFyNYGZPVI94ejKkpEVErj69eAnvAHJvQPkCwsOlMciLFyzR9fYmICQEK97nCtVF8UTU1jci7lcyrRAuBcKgtugyhykNA97Hd0RygcIwRspE4XphaRxB1eaBsUI/Rbb4OFDIps+HhjTMtKQ5KhptEcGdyuvjOAy5sf1yRSWevmH+Az5IVr4GRD63oYDuwEmS2snOX/RZ7CZ5DMNxhi/5E0MWRWwCHp0k9+vQfCpqljjmNdk0WK2mEuiXMduRjGNni+2odCNFmpYoDRYo9UsOVGub8DUH5MPciW+WzRf9EPoA9MzGlp6npyHMnAMqXuOIWR6yyOoYnBcWi6Ft9NzWqvxXjV8y8EAyf0DpbDk58gu1p4GQ/o4/bHeVCCinBL31ok70YF79KU4ogzT9UK05hY1VSboLhaG/vz8847fQNijRrrl/Dx6fKwRau6WdQyUSERuVLq6HHQBTnIHb/diotB6NjW+1+Yzaxw+VwBa+MYDxb7LLFs44zb9n0Lw+p8hhV7FwDSE4wQT1327AUeJqudhVuwSMZECBOVlzy96Jozb4G0oNXdclFsoTGAFy3H3bDIXLyO4SQIa7Ah/PDMtdIkq4oRFN6ml9336BX6u1qCTI37X8IVcjVCgs2MqVS9FDeSWjJ5KPByGjRmQvn7rc1Go="
+    - secure: "CIUi92OsA29P5bgVZfwjYNl5aNTR17jh3aZO0nyrKmrco2Fron2P3QM2cG1SiKUGjrNWANuQu6hX6H9BhJEKB34Tni+xOMx/476Qbe48JZU3WmwQr/iktULRCbxaxGVqx58VJ8GvVR76Qw4pXDITBWZaG9N3HqX63Cu+P87Ey+FfdzdBwRdfphsGZXwkzRhxyTg8LvToM0+7pFAgcHdfOZ6ExPbqVkos8fyL3WTEXIQJAAf9y5X4mVCPMO2Bnry1OxK4afgHuZ7vxojjH+fHY8Y5TjB/H+AaMPugplPKDtFMyrPLmwS+I/UOU2iiTbvJP5y6iiS7Eago8MKg90qFKYgoxTREMNNY/9SUk3cN8F6B5v9vRvo/NYRR3/VC2c1noMWAbvj0zabVxxaJgjzGM5hle8dqLkyPheli9tBjBzHq4Bc9nruwTR6v98FJ372I9QIZ7gumZyoRVg4HnJDZ87YSuZfrK1Ns0TCxuqQLhL1bwRyLQarmYgNRRsJiqW8DK5G2c+Y+6KnuFZUwcVRhCqnHwof7DA3s/Ir92wzkSFC02fJT2hYuv7i2vhlX4bv97FVPkylwbg5oRjEEDXjdGRbZF1ol2SsmSrDb+Rja4Nxxk8jzu5H5Xkw1YcrBaidOWOpJ0k1Tbt0OmOrWaBg7VZptnTEUoRY0NtS2irzQig0="
     - BOB_DOCUMENTATION_SERVER=https://www.idiap.ch/software/bob/docs/latest/bioidiap/%s/master
     - BOB_UPLOAD_WHEEL="--universal"
   - python: 3.3
@@ -20,9 +20,13 @@ install:
 - ./bin/buildout buildout:develop=. buildout:extensions=bob.buildout buildout:auto-checkout=
 script:
 - ./bin/python -c 'import pkg_resources; from bob.db.atvskeystroke import get_config; print(get_config())'
+- ./bin/bob_dbmanage.py atvskeystroke download
 - ./bin/coverage run --source=bob.db.atvskeystroke ./bin/nosetests -sv
+- ./bin/sphinx-build -b doctest doc sphinx
+- ./bin/sphinx-build -b html doc sphinx
 after_success:
 - coveralls
-- wget https://raw.githubusercontent.com/bioidiap/bob.extension/master/scripts/upload-wheel.sh
-- chmod a+x upload-wheel.sh
+- wget https://raw.githubusercontent.com/bioidiap/bob.extension/master/scripts/upload-{sphinx,wheel}.sh
+- chmod a+x upload-sphinx.sh upload-wheel.sh
+- ./upload-sphinx.sh
 - ./upload-wheel.sh
