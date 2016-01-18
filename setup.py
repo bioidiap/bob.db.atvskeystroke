@@ -16,16 +16,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, dist
+dist.Distribution(dict(setup_requires=['bob.extension']))
+
+from bob.extension.utils import load_requirements
+install_requires = load_requirements()
+
+# Define package version
+version = open("version.txt").read().rstrip()
 
 # The only thing we do in this file is to call the setup() function with all
 # parameters that define our package.
 setup(
 
-    name='xbob.db.atvskeystroke',
-    version='0.0.1',
+    name='bob.db.atvskeystroke',
+    version=version,
     description='ATVS-Keystroke Database Access API for Bob',
-    url='http://github.com/mgbarrero/xbob.db.atvskeystroke',
+    url='http://github.com/mgbarrero/bob.db.atvskeystroke',
     license='GPLv3',
     author='Marta Gomez-Barrero',
     author_email='marta.barrero@uam.es',
@@ -36,28 +43,13 @@ setup(
     include_package_data=True,
     zip_safe=False,
 
-    install_requires=[
-      'setuptools',
-      'six',  # py2/3 compatibility library
-      'bob',  # base signal proc./machine learning library
-      'xbob.db.verification.utils>=0.1.4' # defines a set of utilities for face verification databases like this one.
-    ],
-
-    namespace_packages = [
-      'xbob',
-      'xbob.db',
-      ],
+    install_requires=install_requires,
 
     entry_points={
 
       # declare database to bob
       'bob.db': [
-        'atvskeystroke = xbob.db.atvskeystroke.driver:Interface',
-        ],
-
-      # declare tests to bob
-      'bob.test': [
-        'atvskeystroke = xbob.db.atvskeystroke.test:ATVSKeystrokeDatabaseTest',
+        'atvskeystroke = bob.db.atvskeystroke.driver:Interface',
         ],
 
       },

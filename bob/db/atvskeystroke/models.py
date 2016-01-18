@@ -13,17 +13,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-"""Table models and functionality for the BiosecurId database.
+"""Table models and functionality for the ATVSKeystroke database.
 """
 
 import os, numpy
-import bob.db.utils
 from sqlalchemy import Table, Column, Integer, String, ForeignKey, or_, and_, not_
-from bob.db.sqlalchemy_migration import Enum, relationship
+from bob.db.base.sqlalchemy_migration import Enum, relationship
 from sqlalchemy.orm import backref
 from sqlalchemy.ext.declarative import declarative_base
 
-import xbob.db.verification.utils
+import bob.db.verification.utils
 
 Base = declarative_base()
 
@@ -53,7 +52,7 @@ class Client(Base):
     return "Client(`%s`, `%s`)" % (self.id, self.stype)
 
 
-class File(Base, xbob.db.verification.utils.File):
+class File(Base, bob.db.verification.utils.File):
   """Generic file container"""
 
   __tablename__ = 'file'
@@ -74,7 +73,7 @@ class File(Base, xbob.db.verification.utils.File):
 
   def __init__(self, client_id, path, session_id, shot_id):
     # call base class constructor
-    xbob.db.verification.utils.File.__init__(self, client_id = client_id, path = path)
+    bob.db.verification.utils.File.__init__(self, client_id = client_id, path = path)
 
     self.session_id = session_id
     self.shot_id = shot_id

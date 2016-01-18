@@ -13,10 +13,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-"""The BiosecurID database
+"""The ATVSKeystroke database
 """
 
 from .query import Database
 from .models import Client, File, Protocol, ProtocolPurpose
 
-__all__ = dir()
+def get_config():
+  """Returns a string containing the configuration information.
+  """
+  import bob.extension
+  return bob.extension.get_config(__name__)
+
+
+# gets sphinx autodoc done right - don't remove it
+__all__ = [_ for _ in dir() if not _.startswith('_')]

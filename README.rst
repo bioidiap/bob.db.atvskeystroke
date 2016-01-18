@@ -1,3 +1,19 @@
+.. image:: http://img.shields.io/badge/docs-stable-yellow.png
+   :target: http://pythonhosted.org/bob.db.atvskeystroke/index.html
+.. image:: http://img.shields.io/badge/docs-latest-orange.png
+   :target: https://www.idiap.ch/software/bob/docs/latest/bioidiap/bob.db.atvskeystroke/master/index.html
+.. image:: https://travis-ci.org/bioidiap/bob.db.atvskeystroke.svg?branch=master
+   :target: https://travis-ci.org/bioidiap/bob.db.atvskeystroke
+.. image:: https://coveralls.io/repos/bioidiap/bob.db.atvskeystroke/badge.png
+   :target: https://coveralls.io/r/bioidiap/bob.db.atvskeystroke
+.. image:: https://img.shields.io/badge/github-master-0000c0.png
+   :target: https://github.com/bioidiap/bob.db.atvskeystroke/tree/master
+.. image:: http://img.shields.io/pypi/v/bob.db.atvskeystroke.png
+   :target: https://pypi.python.org/pypi/bob.db.atvskeystroke
+.. image:: http://img.shields.io/pypi/dm/bob.db.atvskeystroke.png
+   :target: https://pypi.python.org/pypi/bob.db.atvskeystroke
+
+
 =========================
  ATVS Keystroke Database
 =========================
@@ -24,7 +40,7 @@ The package is available in two different distribution formats:
 1. You can download it from `PyPI <http://pypi.python.org/pypi>`_, or
 
 2. You can download it in its source form from `its git repository
-   <https://github.com/mgbarrero/xbob.db.atvskeystroke>`_. When you download the
+   <https://github.com/mgbarrero/bob.db.atvskeystroke>`_. When you download the
    version at the git repository, you will need to run a command to recreate
    the backend SQLite file required for its operation. This means that the
    database raw files must be installed somewhere in this case. With option
@@ -44,11 +60,11 @@ script)::
 
     install_requires=[
       ...
-      "xbob.db.atvskeystroke",
+      "bob.db.atvskeystroke",
     ],
 
 Proceed normally with your ``boostrap/buildout`` steps and you should be all
-set. That means you can now import the ``xbob.db.atvskeystroke`` namespace into your scripts.
+set. That means you can now import the ``bob.db.atvskeystroke`` namespace into your scripts.
 
 Modify your buildout.cfg and download from git
 ==============================================
@@ -60,12 +76,11 @@ lines::
 
   [buildout]
   ...
-  extensions = mr.developer
+  extensions =mr.developer
   auto-checkout = *
-  eggs = bob
-         ...
-         xbob.db.atvskeystroke
+  eggs = ...
+         bob.db.atvskeystroke
 
   [sources]
-  xbob.db.atvskeystroke = git https://github.com/mgbarrero/xbob.db.atvskeystroke.git
+  bob.db.atvskeystroke = git https://github.com/mgbarrero/bob.db.atvskeystroke.git
   ...

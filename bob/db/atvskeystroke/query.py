@@ -14,20 +14,19 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 """This module provides the Dataset interface allowing the user to query the
-BiosecurID database in the most obvious ways.
+ATVSKeystroke database in the most obvious ways.
 """
 
 import os
 import six
-from bob.db import utils
 from .models import *
 from .driver import Interface
 
-import xbob.db.verification.utils
+import bob.db.verification.utils
 
 SQLITE_FILE = Interface().files()[0]
 
-class Database(xbob.db.verification.utils.SQLiteDatabase,xbob.db.verification.utils.Database):
+class Database(bob.db.verification.utils.SQLiteDatabase,bob.db.verification.utils.Database):
   """The dataset class opens and maintains a connection opened to the Database.
 
   It provides many different ways to probe for the characteristics of the data
@@ -36,8 +35,8 @@ class Database(xbob.db.verification.utils.SQLiteDatabase,xbob.db.verification.ut
 
   def __init__(self, original_directory = None, original_extension = db_file_extension):
     # call base class constructor
-    xbob.db.verification.utils.SQLiteDatabase.__init__(self, SQLITE_FILE, File)
-    xbob.db.verification.utils.Database.__init__(self, original_directory=original_directory, original_extension=original_extension)
+    bob.db.verification.utils.SQLiteDatabase.__init__(self, SQLITE_FILE, File)
+    bob.db.verification.utils.Database.__init__(self, original_directory=original_directory, original_extension=original_extension)
 
   def __group_replace_eval_by_genuine__(self, l):
     """Replace 'eval' by 'Genuine' and returns the new list"""
@@ -103,7 +102,7 @@ class Database(xbob.db.verification.utils.SQLiteDatabase,xbob.db.verification.ut
       The groups to which the subjects attached to the models belong ('Genuine')
       Note that 'dev', 'eval' and 'world' are alias for 'Genuine'.
 
-    Returns: A list containing all the models (model <-> client in BiosecurID) belonging
+    Returns: A list containing all the models (model <-> client in AVTSKeystroke) belonging
              to the given group.
     """
 
@@ -157,7 +156,7 @@ class Database(xbob.db.verification.utils.SQLiteDatabase,xbob.db.verification.ut
     Keyword Parameters:
 
     protocol
-      One of the Biosecurid protocols ('A').
+      One of the ATVSKeystroke protocols ('A').
 
     purposes
       The purposes required to be retrieved ('enrol', 'probe') or a tuple

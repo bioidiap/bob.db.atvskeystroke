@@ -18,7 +18,7 @@
 
 import os
 import sys
-from bob.db.driver import Interface as BaseInterface
+from bob.db.base.driver import Interface as BaseInterface
 
 def dumplist(args):
   """Dumps lists of files based on your criteria"""
@@ -36,7 +36,7 @@ def dumplist(args):
 
   output = sys.stdout
   if args.selftest:
-    from bob.db.utils import null
+    from bob.db.base.utils import null
     output = null()
 
   for f in r:
@@ -64,7 +64,7 @@ def checkfiles(args):
   # report
   output = sys.stdout
   if args.selftest:
-    from bob.db.utils import null
+    from bob.db.base.utils import null
     output = null()
 
   if bad:
@@ -83,7 +83,7 @@ def reverse(args):
 
   output = sys.stdout
   if args.selftest:
-    from bob.db.utils import null
+    from bob.db.base.utils import null
     output = null()
 
   r = db.reverse(args.path)
@@ -101,7 +101,7 @@ def path(args):
 
   output = sys.stdout
   if args.selftest:
-    from bob.db.utils import null
+    from bob.db.base.utils import null
     output = null()
 
   r = db.paths(args.id, prefix=args.directory, suffix=args.extension)
@@ -119,7 +119,7 @@ class Interface(BaseInterface):
 
   def version(self):
     import pkg_resources  # part of setuptools
-    return pkg_resources.require('xbob.db.%s' % self.name())[0].version
+    return pkg_resources.require('bob.db.%s' % self.name())[0].version
 
   def files(self):
 

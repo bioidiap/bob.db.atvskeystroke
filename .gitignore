@@ -3,7 +3,7 @@
 *.pyc
 .DS_Store
 .installed.cfg
-xbob.db.atvskeystroke.egg-info/
+bob.db.atvskeystroke.egg-info/
 parts
 develop-eggs
 bin
