@@ -54,7 +54,7 @@ class ATVSKeystrokeDatabaseTest(unittest.TestCase):
 
     def test_driver_api(self):
 
-      from bob.db.script.dbmanage import main
+      from bob.db.base.script.dbmanage import main
       assert main('atvskeystroke dumplist --self-test'.split()) == 0
       assert main('atvskeystroke checkfiles --self-test'.split()) == 0
       assert main('atvskeystroke reverse Genuine_1_1 --self-test'.split()) == 0
