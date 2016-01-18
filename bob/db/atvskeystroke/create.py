@@ -84,7 +84,7 @@ def add_protocols(session, verbose):
     # Add protocol purposes
     for key in range(len(protocolPurpose_list)):
       purpose = protocolPurpose_list[key]
-      print p.id, purpose[0], purpose[1]
+      print('%s %s %s' % (p.id, purpose[0], purpose[1]))
       pu = ProtocolPurpose(p.id, purpose[0], purpose[1])
       if verbose>1: print("  Adding protocol purpose ('%s','%s')..." % (purpose[0], purpose[1]))
       session.add(pu)
