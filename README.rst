@@ -47,8 +47,8 @@ The package is available in two different distribution formats:
    ``a`` you can run in `dummy` mode and only download the raw data files for
    the database once you are happy with your setup.
 
-You can mix and match points 1/2 and a/b above based on your requirements. Here
-are some examples:
+You can mix and match points 1/2 above based on your requirements. Here are
+some examples:
 
 Modify your setup.py and download from PyPI
 ===========================================
