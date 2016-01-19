@@ -32,7 +32,7 @@ setup(
     name='bob.db.atvskeystroke',
     version=version,
     description='ATVS-Keystroke Database Access API for Bob',
-    url='http://github.com/mgbarrero/bob.db.atvskeystroke',
+    url='http://github.com/bioidiap/bob.db.atvskeystroke',
     license='GPLv3',
     author='Marta Gomez-Barrero',
     author_email='marta.barrero@uam.es',
