@@ -4,7 +4,7 @@
    :target: https://www.idiap.ch/software/bob/docs/latest/bioidiap/bob.db.atvskeystroke/master/index.html
 .. image:: https://travis-ci.org/bioidiap/bob.db.atvskeystroke.svg?branch=master
    :target: https://travis-ci.org/bioidiap/bob.db.atvskeystroke
-.. image:: https://coveralls.io/repos/bioidiap/bob.db.atvskeystroke/badge.png
+.. image:: https://coveralls.io/repos/bioidiap/bob.db.atvskeystroke/badge.svg
    :target: https://coveralls.io/r/bioidiap/bob.db.atvskeystroke
 .. image:: https://img.shields.io/badge/github-master-0000c0.png
    :target: https://github.com/bioidiap/bob.db.atvskeystroke/tree/master
