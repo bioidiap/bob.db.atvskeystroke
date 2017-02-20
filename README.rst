@@ -5,8 +5,8 @@
    :target: http://pythonhosted.org/bob.db.atvskeystroke/index.html
 .. image:: http://img.shields.io/badge/docs-latest-orange.svg
    :target: https://www.idiap.ch/software/bob/docs/latest/bob/bob.db.atvskeystroke/master/index.html
-.. image:: https://gitlab.idiap.ch/bob/bob.db.atvskeystroke/badges/v2.1.3/build.svg
-   :target: https://gitlab.idiap.ch/bob/bob.db.atvskeystroke/commits/v2.1.3
+.. image:: https://gitlab.idiap.ch/bob/bob.db.atvskeystroke/badges/master/build.svg
+   :target: https://gitlab.idiap.ch/bob/bob.db.atvskeystroke/commits/master
 .. image:: https://img.shields.io/badge/gitlab-project-0000c0.svg
    :target: https://gitlab.idiap.ch/bob/bob.db.atvskeystroke
 .. image:: http://img.shields.io/pypi/v/bob.db.atvskeystroke.svg
