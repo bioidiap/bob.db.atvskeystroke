@@ -23,7 +23,8 @@ class Database(bob.db.base.SQLiteDatabase):
   """
 
   def __init__(self, original_directory = None, original_extension = db_file_extension):
-    super(Database, self).__init__(SQLITE_FILE, File)
+    super(Database, self).__init__(SQLITE_FILE, File,
+                                   original_directory, original_extension)
 
   def __group_replace_eval_by_genuine__(self, l):
     """Replace 'eval' by 'Genuine' and returns the new list"""
